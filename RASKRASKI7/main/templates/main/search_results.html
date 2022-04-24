@@ -1,0 +1,38 @@
+{% extends 'main/base.html'%}
+
+
+
+{% block title%}
+Результаты поиска
+{% endblock%}
+
+{% block content %}
+<h2>ВАШИ РЕЗУЛЬТАТЫ ПО ПОИСКУ:</h2>
+
+
+    <div class="main-posts">
+
+
+  {% for el in object_list %}
+          <div class="post-masonry col-md-4 col-sm-6">
+            <div class="post-thumb">
+              <img src="{{ el.image.url }}" alt="">
+              <div class="title-over">
+                <h4>{{ el.title }}</h4>
+              </div>
+              <div class="post-hover text-center">
+                <div class="inside">
+                  <i class="fa fa-plus"></i>
+                  <span class="date">{{ el.create_at }}</span>
+                  <h4><a href="{% url 'video' el.slug %}">{{ el.title }}</a></h4>
+                  <p>{{ el.description|slice:":100" }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+
+  </div>
+</div>
+{% endblock content %}

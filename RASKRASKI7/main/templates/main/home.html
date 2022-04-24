@@ -1,0 +1,36 @@
+{% extends 'main/base.html' %}
+<br><br><br><br><br>
+
+
+{% block title%} Главная{% endblock%}
+
+{% block content %}
+<br><br><br>
+
+
+    <div class="main-posts">
+
+
+        {% for video in video_list %}
+          <div class="post-masonry col-md-4 col-sm-6">
+            <div class="post-thumb">
+              <img src="{{ video.image.url }}" alt="">
+              <div class="title-over">
+                <h4>{{ video.title }}</h4>
+              </div>
+              <div class="post-hover text-center">
+                <div class="inside">
+                  <i class="fa fa-plus"></i>
+                  <span class="date">{{ video.create_at }}</span>
+                  <h4><a href="{% url 'video' video.slug %}">{{ video.title }}</a></h4>
+                  <p>{{ video.description|slice:":100" }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+
+
+  </div>
+</div>
+{% endblock content %}

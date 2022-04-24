@@ -1,0 +1,31 @@
+{% extends 'main/base.html' %}
+
+{% block title%}
+Авторизация
+{% endblock%}
+
+
+{% block content %}
+<h1>{{title}}</h1>
+
+<h4>Вход в аккаунт</h4>
+<form method="post">
+    {% csrf_token %}
+<div class="form-error">{{ form.non_fields_errors }}</div>
+
+    {{ form.as_p }}
+<div id="emailHelp" class="form-text">Никому не говорите пароль!</div>
+  <div class="mb-3 form-check">
+
+
+  </div>
+
+    <button type="submit" class="btn btn-primary" >Войти</button>
+
+
+</form>
+
+
+
+{% endblock %}
+
