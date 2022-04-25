@@ -1,11 +1,6 @@
 from django.core.validators import FileExtensionValidator
 from django.db import models
 from django.urls import reverse
-# Create your models here.
-
-
-
-
 
 class picture(models.Model):
     title = models.CharField(max_length=50, verbose_name='Название')
